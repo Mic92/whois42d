@@ -17,7 +17,7 @@ import (
 )
 
 type Server struct {
-  DataPath string
+	DataPath string
 }
 
 func (s Server) Run(listener *net.TCPListener) {
@@ -197,10 +197,11 @@ func main() {
 	registryPath := path.Join(opts.Registry, "data")
 
 	if _, err := os.Stat(registryPath); err != nil {
-		fmt.Fprint(os.Stderr,
-			"Cannot access '%s', should be in the registry repository: %s",
+		fmt.Fprintf(os.Stderr,
+			"Cannot access '%s', should be in the registry repository: %s\n",
 			registryPath,
 			err)
+		os.Exit(1)
 	}
 
 	address := opts.Address + ":" + fmt.Sprint(opts.Port)
@@ -210,7 +211,7 @@ func main() {
 		os.Exit(1)
 	}
 
-  server := Server{registryPath}
+	server := Server{registryPath}
 	go server.Run(listener.(*net.TCPListener))
 
 	c := make(chan os.Signal, 1)
