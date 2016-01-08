@@ -89,3 +89,8 @@ it run as user nobody, who cannot bind to port 43 itself.
 
     # route-set
     $ whois -h <server> RS-DN42-NATIVE
+
+## TODO
+
+- [ ] Support for filtering
+- [ ] Match multiple objects by inverse index
