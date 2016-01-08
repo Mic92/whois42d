@@ -8,11 +8,11 @@ Based original on whoisd from the dn42 monotone registry written by welterde.
 1. Install a go compiler (like apt-get install go)
 2. Setup Go Workspace:
 
-    $ mkdir ~/go && export GOPATH=~/go
+        $ mkdir ~/go && export GOPATH=~/go
 
 3. Download and install the daemon
 
-    $ go get github.com/Mic92/whois42d
+        $ go get github.com/Mic92/whois42d
 
 ## Usage
 
@@ -26,12 +26,12 @@ However you can use one of the following options to run whois42d without beeing 
 
 1. Use setcap on file:
 
-    $ setcap 'cap_net_bind_service=+ep' ./whois42d
+        $ setcap 'cap_net_bind_service=+ep' ./whois42d
 
 2. Use a supervisor supporting socket activation, for example systemd:
 
-    $ cp whois42d.service whois42d.socket /etc/systemd/system
-    $ install -D -m755 ~/go/bin/whois42d /usr/local/bin/
+        $ cp whois42d.service whois42d.socket /etc/systemd/system
+        $ install -D -m755 ~/go/bin/whois42d /usr/local/bin/
 
 Edit whois42d.service to point to your monotone registry path, then enable it with
 
