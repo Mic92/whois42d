@@ -58,6 +58,9 @@ it run as user nobody, who cannot bind to port 43 itself.
 - as-set: `$ whois -h <server> 4242420000_4242423999`
 - as-block: `$ whois -h <server> AS-FREIFUNK`
 - route-set: `$ whois -h <server> RS-DN42-NATIVE`
+- version: `$ whois -h <server> -q version`
+- sources: `$ whois -h <server> -q sources`
+- types: `$ whois -h <server> -q types`
 
 
 ## TODO

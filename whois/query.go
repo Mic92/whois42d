@@ -84,7 +84,7 @@ func (r *Registry) HandleQuery(conn *net.TCPConn) {
 
 	flags := query.Flags
 	if flags.ServerInfo != "" {
-		r.printServerInfo(conn, flags.ServerInfo)
+		r.printServerInfo(conn, strings.TrimSpace(flags.ServerInfo))
 		return
 	}
 	found := false
@@ -187,7 +187,7 @@ func (r *Registry) printServerInfo(conn *net.TCPConn, what string) {
 			fmt.Fprintf(conn, "%s\n", t.Name)
 		}
 	default:
-		fmt.Fprintf(conn, "% unknown option %s\n", what)
+		fmt.Fprintf(conn, "%% unknown option %s\n", what)
 	}
 }
 
