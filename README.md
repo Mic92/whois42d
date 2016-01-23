@@ -43,49 +43,24 @@ it run as user nobody, who cannot bind to port 43 itself.
 
 ## Supported Queries
 
-    # mntner
-    $ whois -h <server> HAX404-MNT
+- mntner: `$ whois -h <server> HAX404-MNT`
+- person: `$ whois -h <server> HAX404-DN42`
+- aut-num: `$ whois -h <server> AS4242420429`
+- dns: `$ whois -h <server> hax404.dn42`
+- inetnum: `$ whois -h <server> 172.23.136.0/23` or `$ whois -h <server> 172.23.136.1`
+- inet6num: `$ whois -h <server> fd58:eb75:347d::/48`
+- route: `$ whois -h <server> 172.23.136.0/23`
+- route6: `$ whois -h <server> fdec:1:1:dead::/64`
+- schema: `$ whois -h <server> PERSON-SCHEMA`
+- organisation: `$ whois -h <server> ORG-C3D2`
+- tinc-keyset: `$ whois -h <server> SET-1-DN42-TINC`
+- tinc-key: `$ whois -h <server> AS4242422703`
+- as-set: `$ whois -h <server> 4242420000_4242423999`
+- as-block: `$ whois -h <server> AS-FREIFUNK`
+- route-set: `$ whois -h <server> RS-DN42-NATIVE`
 
-    # person
-    $ whois -h <server> HAX404-DN42
 
-    # aut-num
-    $ whois -h <server> AS4242420429
+## TODO
 
-    # dns
-    $ whois -h <server> hax404.dn42
-
-    # inetnum
-    $ whois -h <server> 172.23.136.0/23
-    # or
-    $ whois -h <server> 172.23.136.1
-
-    # inet6num
-    $ whois -h <server> fd58:eb75:347d::/48
-
-    # route
-    $ whois -h <server> 172.23.136.0/23
-
-    # route6
-    $ whois -h <server> fdec:1:1:dead::/64
-
-    # schema
-    $ whois -h <server> PERSON-SCHEMA
-
-    # organisation
-    $ whois -h <server> ORG-C3D2
-
-    # tinc-keyset
-    $ whois -h <server> SET-1-DN42-TINC
-
-    # tinc-key
-    $ whois -h <server> AS4242422703
-
-    # as-set
-    $ whois -h <server> 4242420000_4242423999
-
-    # as-block
-    $ whois -h <server> AS-FREIFUNK
-
-    # route-set
-    $ whois -h <server> RS-DN42-NATIVE
+- [ ] Support for filtering
+- [ ] Match multiple objects by inverse index

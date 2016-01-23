@@ -1,0 +1,8 @@
+[Unit]
+Description=Whois dn42 daemon socket
+
+[Socket]
+ListenStream=43
+
+[Install]
+WantedBy=sockets.target

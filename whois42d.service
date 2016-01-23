@@ -1,0 +1,6 @@
+[Unit]
+Description=Whois dn42 daemon
+
+[Service]
+ExecStart=/usr/local/bin/whois42d -registry /var/lib/whois42d/registry
+User=nobody
