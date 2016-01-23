@@ -36,17 +36,32 @@ func shellSplit(s string) []string {
 
 type Flags struct {
 	ServerInfo string
+	TypeSchema string
+	Types      map[string]bool
 	Args       []string
 }
 
 func parseFlags(request string) (*Flags, *flag.FlagSet, error) {
 	args := shellSplit(request)
 	set := flag.NewFlagSet("whois42d", flag.ContinueOnError)
+	var typeField string
 	f := Flags{}
 	set.StringVar(&f.ServerInfo, "q", "", "[version|sources|types] query specified server info")
+	set.StringVar(&f.TypeSchema, "t", "", "request template for object of TYPE")
+	set.StringVar(&typeField, "T", "", "TYPE[,TYPE]... only look for objects of TYPE")
+
 	if err := set.Parse(args); err != nil {
 		return nil, set, err
 	}
+
+	if typeField != "" {
+		types := strings.Split(typeField, ",")
+		f.Types = make(map[string]bool, len(types))
+		for _, t := range types {
+			f.Types[t] = true
+		}
+	}
+
 	f.Args = set.Args()
 	return &f, set, nil
 }

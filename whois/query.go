@@ -56,9 +56,13 @@ var whoisTypes = []Type{
 	{"as-block", regexp.MustCompile(`\d+_\d+`), UPPER},
 }
 
-func (r *Registry) handleObject(conn *net.TCPConn, object Object) bool {
+func (r *Registry) handleObject(conn *net.TCPConn, object Object, flags *Flags) bool {
 	found := false
 	for _, t := range whoisTypes {
+		if len(flags.Types) > 0 && !flags.Types[t.Name] {
+			continue
+		}
+
 		if t.Kind == ROUTE || t.Kind == ROUTE6 {
 			if object[t.Kind] != nil {
 				found = found || r.printNet(conn, t.Name, object[t.Kind].(net.IP))
@@ -84,12 +88,12 @@ func (r *Registry) HandleQuery(conn *net.TCPConn) {
 
 	flags := query.Flags
 	if flags.ServerInfo != "" {
-		r.printServerInfo(conn, strings.TrimSpace(flags.ServerInfo))
+		printServerInfo(conn, strings.TrimSpace(flags.ServerInfo))
 		return
 	}
 	found := false
 	for _, obj := range query.Objects {
-		if r.handleObject(conn, obj) {
+		if r.handleObject(conn, obj, flags) {
 			found = true
 		}
 	}
@@ -176,7 +180,7 @@ func parseQuery(conn *net.TCPConn) *Query {
 	return &query
 }
 
-func (r *Registry) printServerInfo(conn *net.TCPConn, what string) {
+func printServerInfo(conn *net.TCPConn, what string) {
 	switch what {
 	case "version":
 		fmt.Fprintf(conn, "%% whois42d v%d\n", VERSION)

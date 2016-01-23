@@ -61,6 +61,7 @@ it run as user nobody, who cannot bind to port 43 itself.
 - version: `$ whois -h <server> -q version`
 - sources: `$ whois -h <server> -q sources`
 - types: `$ whois -h <server> -q types`
+- type filtering: `$ whois -h 172.23.75.6 -T aut-num,person Mic92-DN42 AS4242420092`
 
 
 ## TODO
