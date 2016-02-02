@@ -1,4 +1,6 @@
 # whois42d
+[![Build Status](https://travis-ci.org/Mic92/whois42d.svg?branch=master)](https://travis-ci.org/Mic92/whois42d)
+
 Whois server for the dn42 registry.
 
 Based original on whoisd from the dn42 monotone registry written by welterde.
