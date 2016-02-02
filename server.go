@@ -91,8 +91,8 @@ func parseFlags() options {
 }
 
 func Listeners() []*net.TCPListener {
-	defer os.Unsetenv("LISTEN_PID")
-	defer os.Unsetenv("LISTEN_FDS")
+	defer unsetenv("LISTEN_PID")
+	defer unsetenv("LISTEN_FDS")
 
 	pid, err := strconv.Atoi(os.Getenv("LISTEN_PID"))
 	if err != nil || pid != os.Getpid() {
