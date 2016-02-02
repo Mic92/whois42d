@@ -1,7 +1,6 @@
 package main
 
 import (
-	"./whois"
 	"flag"
 	"fmt"
 	"net"
@@ -13,6 +12,8 @@ import (
 	"sync/atomic"
 	"syscall"
 	"time"
+
+	"github.com/Mic92/whois42d/whois"
 )
 
 type Server struct {
