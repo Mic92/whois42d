@@ -70,7 +70,7 @@ it run as user nobody, who cannot bind to port 43 itself.
 There is also a pretty small container available (around 3mb).
 
 ```
-$ docker run -v path/to/registry:/registry -p 43:4343 --rm Mic92/whois42d
+$ docker run -v path/to/registry:/registry -p 43:4343 --rm mic92/whois42d
 ```
 
 ## TODO
