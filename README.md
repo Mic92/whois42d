@@ -65,6 +65,13 @@ it run as user nobody, who cannot bind to port 43 itself.
 - types: `$ whois -h <server> -q types`
 - type filtering: `$ whois -h 172.23.75.6 -T aut-num,person Mic92-DN42 AS4242420092`
 
+## Run on docker
+
+There is also a pretty small container available (around 3mb).
+
+```
+$ docker run -v path/to/registry:/registry -p 43:4343 --rm Mic92/whois42d
+```
 
 ## TODO
 
