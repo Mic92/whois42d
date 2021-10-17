@@ -73,6 +73,13 @@ There is also a pretty small container available (around 3mb).
 $ docker run -v path/to/registry:/registry -p 43:4343 --rm mic92/whois42d
 ```
 
+## Build
+
+```
+go mod init github.com/Mic92/whois42d
+make
+```
+
 ## TODO
 
 - [ ] Match multiple objects by inverse index
