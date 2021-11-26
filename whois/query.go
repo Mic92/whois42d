@@ -67,7 +67,9 @@ func (r *Registry) handleObject(conn *net.TCPConn, object Object, flags *Flags) 
 
 		if t.Kind == ROUTE || t.Kind == ROUTE6 {
 			if object[t.Kind] != nil {
-				found = found || r.printNet(conn, t.Name, object[t.Kind].(net.IP))
+				if r.printNet(conn, t.Name, object[t.Kind].(net.IP)) {
+					found = true
+				}
 			}
 		} else {
 			arg := object[t.Kind].(string)

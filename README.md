@@ -77,6 +77,7 @@ $ docker run -v path/to/registry:/registry -p 43:4343 --rm mic92/whois42d
 
 ```
 go mod init github.com/Mic92/whois42d
+go mod tidy
 make
 ```
 
